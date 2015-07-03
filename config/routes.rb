@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
+  get '/pages/:id', to: 'pages#show'
+
   resources :students, only: [:index, :show]
 
   namespace :admin do
+    resources :pages
     resources :students
   end
 
-  get 'admin' => 'admin/admin#index'
+  get '/admin' => 'admin/admin#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
