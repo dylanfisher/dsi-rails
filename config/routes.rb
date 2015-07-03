@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
-  get '/pages/:id', to: 'pages#show'
+  root 'pages#index'
+
+  get '/pages/:id', to: 'pages#show', as: 'page'
 
   resources :students, only: [:index, :show]
 
   namespace :admin do
     resources :pages
+    resources :navigation_items
     resources :students
   end
 

@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150703215410) do
+ActiveRecord::Schema.define(version: 20150703221554) do
+
+  create_table "navigation_items", force: :cascade do |t|
+    t.integer  "navigation_item_id"
+    t.integer  "page_id"
+    t.string   "title"
+    t.string   "link"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "navigation_items", ["navigation_item_id"], name: "index_navigation_items_on_navigation_item_id"
+  add_index "navigation_items", ["page_id"], name: "index_navigation_items_on_page_id"
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"

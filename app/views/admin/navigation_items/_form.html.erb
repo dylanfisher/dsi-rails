@@ -1,0 +1,33 @@
+<%= form_for([:admin, @navigation_item]) do |f| %>
+  <% if @navigation_item.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@navigation_item.errors.count, "error") %> prohibited this navigation_item from being saved:</h2>
+
+    <ul>
+      <% @navigation_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :navigation_item_id %><br>
+    <%= f.collection_select :navigation_item_id, NavigationItem.all, :id, :id, include_blank: :true %>
+  </div>
+  <div class="field">
+    <%= f.label :page_id %><br>
+    <%= f.collection_select :page_id, Page.all.order(title: :asc), :id, :title, include_blank: :true %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

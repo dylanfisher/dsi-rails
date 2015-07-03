@@ -1,0 +1,1 @@
+json.extract! @navigation_item, :page_id, :title, :link, :created_at, :updated_at
