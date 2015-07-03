@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
@@ -32,6 +31,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :development do
+  gem "nifty-generators"
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -41,5 +44,18 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
 
+  # Guard is a command line tool to easily handle events on file system modifications.
+  gem 'guard', '~> 2.12.7'
+  # Automatically reload your browser as 'view' files are modified: https://github.com/guard/guard-livereload
+  gem 'guard-livereload'
+
+  # Mutes assets pipeline log messages https://github.com/evrone/quiet_assets
+  gem 'quiet_assets'
+
+  # Entity-Relationship Diagrams for Ruby on Rails: http://rails-erd.rubyforge.org/
+  gem 'rails-erd'
+
+  # Autoload dotenv in Rails.
+  gem 'dotenv-rails', '~> 2.0.2'
+end
