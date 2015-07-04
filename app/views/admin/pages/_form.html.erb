@@ -1,3 +1,9 @@
+<% if flash[:error]  %>
+  <div class="error">
+    <em><%= flash.now[:error]  %></em>
+  </div>
+<% end %>
+
 <%= form_for([:admin, @page]) do |f| %>
   <% if @page.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +19,7 @@
 
   <div class="field">
       <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, value: params[:new_page] %>
     </div>
   <div class="field">
       <%= f.label :content %><br>

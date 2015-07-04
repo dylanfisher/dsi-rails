@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  get '/pages/:id', to: 'pages#show', as: 'page'
-
   resources :students, only: [:index, :show]
 
   namespace :admin do
@@ -14,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/admin' => 'admin/admin#index'
 
+  get '/:id', to: 'pages#show', as: 'page'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

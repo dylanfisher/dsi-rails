@@ -31,6 +31,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
+gem 'friendly_id', '~> 5.1.0'
+
 group :development do
   gem 'rails-admin-scaffold', '~> 0.1.0'
 end

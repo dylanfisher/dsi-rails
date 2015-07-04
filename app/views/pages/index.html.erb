@@ -1,5 +1,9 @@
 <h1>My rails app</h1>
 
-<% @navigation_items.each do |navigation_item| %>
-  <h4><%= link_to navigation_title(navigation_item), navigation_link(navigation_item) %></h4>
-<% end %>
+<nav>
+  <ul>
+    <% @navigation_items.each do |navigation_item| %>
+      <li><%= link_to navigation_title(navigation_item), navigation_link(navigation_item) %></li>
+    <% end %>
+  </ul>
+</nav>

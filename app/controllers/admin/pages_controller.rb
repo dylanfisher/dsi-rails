@@ -25,7 +25,7 @@ class Admin::PagesController < ApplicationController
   # POST /admin/pages.json
   def create
     @page = Page.new(page_params)
-
+    flash[:notice]
     respond_to do |format|
       if @page.save
         format.html { redirect_to [:admin, @page], notice: 'Page was successfully created.' }
@@ -64,7 +64,7 @@ class Admin::PagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page
-      @page = Page.find(params[:id])
+      @page = Page.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
