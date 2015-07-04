@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :students
   end
 
-  get '/admin' => 'admin/admin#index'
+  get '/admin' => 'admin/admin#index', as: 'admin_index'
 
   get '/:id', to: 'pages#show', as: 'page'
   get "*new_page" => "admin/pages#new", :flash => { :error => "That page doesn't exist yet." }

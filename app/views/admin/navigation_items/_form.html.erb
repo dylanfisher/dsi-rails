@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :navigation_item_id %><br>
-    <%= f.collection_select :navigation_item_id, NavigationItem.all, :id, :id, include_blank: :true %>
+    <%= f.label :navigation_item_id, 'Parent navigation' %><br>
+    <%= f.collection_select :navigation_item_id, NavigationItem.all, :id, :navigation_title, include_blank: :true %>
   </div>
   <div class="field">
     <%= f.label :page_id %><br>

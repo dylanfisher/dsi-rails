@@ -1,5 +1,11 @@
 <h1>Admin#index</h1>
 
-<% @all_resources.each_with_index do |resource, i| %>
-  <div><%= link_to(resource.to_s.titleize, polymorphic_path([:admin, resource])) %></div>
-<% end %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="list-group">
+      <% @all_resources.each_with_index do |resource, i| %>
+        <%= link_to(resource.to_s.titleize, polymorphic_path([:admin, resource]), class: 'list-group-item') %>
+      <% end %>
+    </div>
+  </div>
+</div>

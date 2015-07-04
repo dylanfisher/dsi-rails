@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">DsiRails</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% NavigationItem.primary_nav.each do |navigation_item| %>
+          <li>
+            <% if NavigationItem.sub_nav(navigation_item).present? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= navigation_title(navigation_item) %> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <% NavigationItem.sub_nav(navigation_item).each do |sub_nav| %>
+                    <li>
+                      <%= link_to navigation_title(sub_nav), navigation_link(navigation_item) %>
+                    </li>
+                  <% end %>
+                </ul>
+              </li>
+            <% else %>
+              <%= link_to navigation_title(navigation_item), navigation_link(navigation_item) %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Admin', admin_index_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
