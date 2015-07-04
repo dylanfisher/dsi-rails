@@ -1,6 +1,7 @@
-<% if flash[:error]  %>
+<% flash_error = params[:flash].present? ? params[:flash][:error] : flash[:error] %>
+<% if flash_error  %>
   <div class="error">
-    <em><%= flash.now[:error]  %></em>
+    <em><%= flash_error  %></em>
   </div>
 <% end %>
 
@@ -19,7 +20,7 @@
 
   <div class="field">
       <%= f.label :title %><br>
-    <%= f.text_field :title, value: params[:new_page] %>
+    <%= f.text_field :title, value: params[:new_page].split('/').last.titlecase %>
     </div>
   <div class="field">
       <%= f.label :content %><br>

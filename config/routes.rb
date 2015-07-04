@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/admin' => 'admin/admin#index'
 
   get '/:id', to: 'pages#show', as: 'page'
+  get "*new_page" => "admin/pages#new", :flash => { :error => "That page doesn't exist yet." }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
