@@ -1,19 +1,22 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :users
-  end
   root 'pages#index'
+
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
+  get 'users/show', as: 'user'
 
   resources :students, only: [:index, :show]
 
+  get '/admin' => 'admin/admin#index', as: 'admin_index'
   namespace :admin do
+    resources :users
     resources :pages
     resources :navigation_items
     resources :students
   end
-
-  get '/admin' => 'admin/admin#index', as: 'admin_index'
 
   get '/:id', to: 'pages#show', as: 'page'
   get "*new_page" => "admin/pages#new", :flash => { :error => "That page doesn't exist yet." }
