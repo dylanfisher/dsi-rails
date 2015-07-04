@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :users
+  end
   root 'pages#index'
 
   resources :students, only: [:index, :show]

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150704010657) do
+ActiveRecord::Schema.define(version: 20150704210042) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -62,5 +62,14 @@ ActiveRecord::Schema.define(version: 20150704010657) do
   end
 
   add_index "students", ["slug"], name: "index_students_on_slug", unique: true
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
 end
