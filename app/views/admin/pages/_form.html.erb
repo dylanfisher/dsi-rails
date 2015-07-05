@@ -1,9 +1,4 @@
-<% flash_error = params[:flash].present? ? params[:flash][:error] : flash[:error] %>
-<% if flash_error  %>
-  <div class="error">
-    <em><%= flash_error  %></em>
-  </div>
-<% end %>
+<%= render partial: "shared/flash/error" %>
 
 <%= form_for([:admin, @page]) do |f| %>
   <% if @page.errors.any? %>
@@ -20,7 +15,7 @@
 
   <div class="field">
       <%= f.label :title %><br>
-    <%= f.text_field :title, value: params[:new_page].split('/').last.titlecase %>
+    <%= f.text_field :title, value: (params[:title].split('/').last.titlecase unless params[:title].blank?) %>
     </div>
   <div class="field">
       <%= f.label :content %><br>

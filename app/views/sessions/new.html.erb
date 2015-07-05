@@ -3,6 +3,8 @@
 
 <div class="row">
   <div class="col-md-6">
+    <%= render partial: 'shared/flash/error' %>
+
     <%= form_for(:session, url: login_path) do |f| %>
 
       <%= f.label :email %>
