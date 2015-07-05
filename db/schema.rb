@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150704210042) do
+ActiveRecord::Schema.define(version: 20150705205129) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -70,6 +70,9 @@ ActiveRecord::Schema.define(version: 20150704210042) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "slug"
   end
+
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
 
 end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post   "login"   => "sessions#create"
   delete "logout"  => "sessions#destroy"
 
-  get "users/show", as: "user"
+  get "users/:id", to: "users#show", as: "user"
 
   resources :students, only: [:index, :show]
 

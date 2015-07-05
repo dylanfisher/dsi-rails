@@ -16,3 +16,7 @@ li {
   @extend .btn;
   @extend .btn-primary;
 }
+
+.well:last-child {
+  margin-bottom: 0;
+}
