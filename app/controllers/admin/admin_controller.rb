@@ -1,5 +1,7 @@
 class Admin::AdminController < ApplicationController
 
+  before_filter :authorize
+
   def index
     @all_resources = Rails.application.routes.routes.select do |route|
       route.defaults[:controller] =~ /^admin\/(.+)/ && route.defaults[:action] == 'index' && route.name == "admin_#{$1}"
