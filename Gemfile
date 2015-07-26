@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
+ruby '2.2.2'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+gem 'pg'
 
 # Sass-powered version of Bootstrap
 gem 'bootstrap-sass', '~> 3.3.5'
@@ -37,6 +40,10 @@ gem 'bcrypt', '~> 3.1.10'
 
 # FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
 gem 'friendly_id', '~> 5.1.0'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development do
   gem 'rails-admin-scaffold', '~> 0.1.0'
